@@ -1,0 +1,101 @@
+var quotations = [
+{ 
+	quote: "One way to forget about pain is to do something you will be in, completely. So. computer games.",
+	by: "Danil 'Dendi' Ishutin",
+	category: "gaming"
+},
+{
+	quote: "S T F U",
+	by: "Clinton 'Fear' Loomis",
+	category: "gaming"
+},
+{
+	quote: "gg China EZ",
+	by: "Syed Sumail 'SumaiL' Hassan",
+	category: "gaming"
+},
+{
+	quote: "Video Games don't make people violent - LAG DOES!",
+	by: "Unknown",
+	category: "gaming"
+},
+{
+	quote: "I don't need to 'Get A Life.' I'm a gamer. I have lots of lives!",
+	by: "Unknown",
+	category: "gaming"
+},
+{
+	quote: "When I die, I want to go peacefully like my grandfather did–in his sleep. Not yelling and screaming like the passengers in his car.",
+	by: "Bob Monkhouse",
+	category: "comedy"
+},
+{
+	quote: "Always borrow money from a pessimist. He won’t expect it back.",
+	by: "Oscar Wilde",
+	category: "comedy"
+},
+{
+	quote: "I saw the movie, 'Crouching Tiger, Hidden Dragon' and was surprised because I didn't see any tigers or dragons. And then I realized why: they're crouching and hidden.",
+	by: "Steve Martin",
+	category: "comedy"
+},
+{
+	quote: "Evening news is where they begin with “Good evening,” and then proceed to tell you why it isn’t.",
+	by: "Anonymous",
+	category: "comedy"
+},
+{
+	quote: "Instead of getting married again, I’m going to find a woman I don’t like and just give her a house.",
+	by: "Rod Stewart",
+	category: "comedy"
+},
+{
+	quote: "Everything should be made as simple as possible, but not simpler.",
+	by: "Albert Einstein",
+	category: "wisdom"
+},
+{
+	quote: "We tend to overestimate what we can do in the short term and underestimate what we can do in the long term.",
+	by: "Tim Hurson",
+	category: "wisdom"
+},
+{
+	quote: "Knowledge is knowing a tomato is a fruit; wisdom is not putting it in a fruit salad.",
+	by: " Miles Kington",
+	category: "wisdom"
+},
+{
+	quote: "Quality means doing it right when no one is looking.",
+	by: "Henry Ford",
+	category: "wisdom"
+},
+{
+	quote: "The best way out is always through.",
+	by: "Robert Frost",
+	category: "wisdom"
+},
+{
+	quote: "The only thing we have to fear is fear itself.",
+	by: "Franklin D. Roosevelt",
+	category: "presidents"
+},
+{
+	quote: "Education is the most powerful weapon which you can use to change the world.",
+	by: "Nelson Mandela",
+	category: "presidents"
+},
+{
+	quote: "I am a slow walker, but I never walk back.",
+	by: "Abraham Lincoln",
+	category: "presidents"
+},
+{
+	quote: "Associate with men of good quality if you esteem your own reputation; for it is better to be alone than in bad company.",
+	by: " George Washington",
+	category: "presidents"
+},
+{
+	quote: "The only man who never makes a mistake is the man who never does anything.",
+	by: "Theodore Roosevelt",
+	category: "presidents"
+};
