@@ -52,50 +52,83 @@ Safari
 
 */
 // STARTING CODE HERE:
-var quote = "";
-var source = "";
-var citation = "";
-var image = "";
 
 //Print the quotation to the page
 function printQuote(quote) {
-  var x = document.getElementsByClassName("quote");
+  var x = document.getElementsByClassName("quote")
   x[0].innerHTML = quote;
 }
 
-//prints the source to the page
-function printSource(source) {
+//prints the source to the page and re-adds in the <span class="citation"></span><span class="year"></span> 
+function printSource(sourceInput) {
 	var x = document.getElementsByClassName("source");
-  	x[0].innerHTML = source;
+	x[0].innerHTML = sourceInput;
 }
 
-//prints the citation to the page
+//Print the citation to the page
 function printCitation(citation) {
-	var x = document.getElementsByClassName("citation");
-	x[0].innerHTML = citation;
+  var x = document.getElementsByClassName("citation")
+  x[0].innerHTML = citation;
 }
 
-var getImagePosition = '';
+//Print the year to the page
+function printYear(year) {
+  var x = document.getElementsByClassName("year")
+  x[0].innerHTML = year;
+}
 
-// Creates the source for the image
+
+// Creates a random number from 0 - 19 (as the first number in the array is 0)
+function getRandomNumber(quotationsLength) {
+  var num = Math.floor(Math.random() * quotationsLength); 
+  return num;
+}
+
+
+
+// Creates the src for the image
 function getImage(image) {
- var div = document.getElementById("image")
- div.src = image;
+ var div = document.getElementById("image");
+ div.src = image; //STILL NEED AN ALT IMAGE http://jsfiddle.net/Bc6Et/
 }
 
+var quotationsLength = quotations.length;
 
-printQuote(quotations[0].quote);
-printSource(quotations[0].source);
-//myFunction(quotations[0].citation);
-getImage(quotations[0].image);
+var randomNumber = getRandomNumber(quotationsLength);
+
+// Creates the text inbetween the paragraph tag (used for printSource)
+var sourceInput = quotations[randomNumber].source;
+//sourceInput += '<span class="citation"></span><span class="year"></span>';
+
+//quotations[0].source'<span class="year">'quotations[0].citation'</span>''<span class="year">'quotations[0].year'</span>';
 
 
-function myFunction(banana) {
+printQuote(quotations[randomNumber].quote);
+printSource(sourceInput);
+getImage(quotations[randomNumber].image);
+printCitation(quotations[randomNumber].citation);
+printYear(quotations[randomNumber].year);
+
+
+
+/*
+//TESTING UNDERNEATH
+
+var test = document.getElementById('quote-box').getElementsByTagName('span').getelementsbyClassName('citation');
+obj = {};
+for (var i = 0, l = spans.length; i < l; i++) {
+    obj[spans[i].id] = spans[i].textContent || spans[i].innerText;
+}
+
+console.log(obj);
+
+
+function myFunction(citation) {
     var x = document.getElementById("quote-box");
-    x.getElementsByClassName("citation")[0].innerHTML = banana;
-}
+    x.getElementsByClassName("citation")[0].innerHTML = citation;
+} // WORKS IF IT"S NOT IN THE <p> TAG??!
 myFunction(quotations[0].citation);
-
+*/
 /*
 function myFunction(citation) {
     var x = document.getElementsByClassName("citation");
