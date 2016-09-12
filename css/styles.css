@@ -4,6 +4,10 @@ body {
   color: white;
   font-family: 'Playfair Display', serif;
 }
+#image {
+  position: relative;
+  border-radius: 10px;
+}
 #quote-box {
   position: absolute;
   top: 20%;
@@ -16,8 +20,8 @@ body {
   font-size: 4rem;
   font-weight: 400;
   line-height: 1.1;
-  position: relative;
-  margin: 0;
+  margin-left: 250px;
+  position: absolute;
   } 
 .quote:before, .quote:after {
   font-size: 6rem;
@@ -40,7 +44,7 @@ body {
   letter-spacing: 0.05em;
   line-height: 1.1;
   text-align: right;
-  margin-right: 4em;
+  margin-right: 0em;
 }
 .source:before {
   content: "—";
@@ -67,7 +71,7 @@ body {
   border-radius: 4px;
   border: 2px solid #fff;
   color: #fff;
-  background-color: #36b55c;
+  background-color: #A9A9A9;
   padding: 15px 0;
   transition: .5s ;
 }

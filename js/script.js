@@ -34,7 +34,7 @@ BONUS: http://treehouse-techdegree.s3.amazonaws.com/Student-Project-Submission-C
 --------------
 
 Add more properties to the quote object. For example, a tags property could include a list of "tags" like -- "humor", "business", "politics" -- to categorize each quote.
-Randomly change the background color of the page, when the quote changes
+// DONE Randomly change the background color of the page, when the quote changes
 Don't display a random quote more than once until ALL quotes from the array have been displayed.
 Refresh the quote after a set amount of time. For example, every 30 seconds, make a new quote appear. 
 (You can use the setInterval() or setTimeout() method to do this -- see the links in the Project Resources listing.)
@@ -53,96 +53,121 @@ Safari
 */
 // STARTING CODE HERE:
 
-//Print the quotation to the page
+/*
+This function creates a unique random number from 0 - 19 (quotations.length)
+It will not repeat until all numbers have come up
+*/
+var uniqueRandoms = [];
+var numRandoms = quotations.length;
+function makeUniqueRandom() {
+    // refill the array if needed
+    if (!uniqueRandoms.length) {
+        for (var i = 0; i < numRandoms; i++) {
+            uniqueRandoms.push(i);
+        }
+    }
+    var index = Math.floor(Math.random() * uniqueRandoms.length);
+    var val = uniqueRandoms[index];
+
+    // now remove that value from the array
+    uniqueRandoms.splice(index, 1);
+
+    return val;
+
+}
+
+//Print the quotation to the page (adds in the html)
 function printQuote(quote) {
   var x = document.getElementsByClassName("quote")
   x[0].innerHTML = quote;
 }
 
-//prints the source to the page and re-adds in the <span class="citation"></span><span class="year"></span> 
-function printSource(sourceInput) {
+//prints the source to the page (adds in the html)
+function printSource(source) {
 	var x = document.getElementsByClassName("source");
-	x[0].innerHTML = sourceInput;
+	x[0].innerHTML = source;
 }
 
-//Print the citation to the page
+//Print the citation to the page (adds in the html)
 function printCitation(citation) {
   var x = document.getElementsByClassName("citation")
   x[0].innerHTML = citation;
 }
 
-//Print the year to the page
+//Print the year to the page (adds in the html)
 function printYear(year) {
   var x = document.getElementsByClassName("year")
   x[0].innerHTML = year;
 }
 
-
-// Creates a random number from 0 - 19 (as the first number in the array is 0)
-function getRandomNumber(quotationsLength) {
-  var num = Math.floor(Math.random() * quotationsLength); 
-  return num;
-}
-
-
-
-// Creates the src for the image
-function getImage(image) {
+// Creates the src for the image (adds in the html)
+function printImage(image) {
  var div = document.getElementById("image");
  div.src = image; //STILL NEED AN ALT IMAGE http://jsfiddle.net/Bc6Et/
 }
 
-var quotationsLength = quotations.length;
-
-var randomNumber = getRandomNumber(quotationsLength);
-
-// Creates the text inbetween the paragraph tag (used for printSource)
-var sourceInput = quotations[randomNumber].source;
-//sourceInput += '<span class="citation"></span><span class="year"></span>';
-
-//quotations[0].source'<span class="year">'quotations[0].citation'</span>''<span class="year">'quotations[0].year'</span>';
-
-
-printQuote(quotations[randomNumber].quote);
-printSource(sourceInput);
-getImage(quotations[randomNumber].image);
-printCitation(quotations[randomNumber].citation);
-printYear(quotations[randomNumber].year);
-
-
-
-/*
-//TESTING UNDERNEATH
-
-var test = document.getElementById('quote-box').getElementsByTagName('span').getelementsbyClassName('citation');
-obj = {};
-for (var i = 0, l = spans.length; i < l; i++) {
-    obj[spans[i].id] = spans[i].textContent || spans[i].innerText;
-}
-
-console.log(obj);
-
-
-function myFunction(citation) {
-    var x = document.getElementById("quote-box");
-    x.getElementsByClassName("citation")[0].innerHTML = citation;
-} // WORKS IF IT"S NOT IN THE <p> TAG??!
-myFunction(quotations[0].citation);
-*/
-/*
-function myFunction(citation) {
-    var x = document.getElementsByClassName("citation");
-    for (i = 0; i < x.length; i++) {
-        x[i].innerHTML = citation;
+// Generates a random color to use for changeBackgroundColor() to change the background color
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
     }
+    return color;
 }
-Change the background color of all elements with class="example":
+// Changes the background color
+function changeBackgroundColor() {
+	document.body.style.backgroundColor = getRandomColor();
+}
 
-var x = document.getElementsByClassName("example");
-var i;
-for (i = 0; i < x.length; i++) {
-    x[i].style.backgroundColor = "red";
+
+
+// Loads new data when the user presses the 'Show another quote' button
+function loadQuote(quote) {
+	// Generates a new random number each time the function is called
+	var randomNumber = makeUniqueRandom()
+	// Inputs the HTML code and prints it to the page
+	printQuote(quotations[randomNumber].quote);
+	printSource(quotations[randomNumber].source);
+	printCitation(quotations[randomNumber].citation);
+	printYear(quotations[randomNumber].year);
+	printImage(quotations[randomNumber].image);
+	changeBackgroundColor();
+	console.log(randomNumber);
+	clearInterval(timer);
 }
+
+
+var timer = setInterval(loadQuote(),10000);
+/*
+testing:
+
+
+function myFn() {console.log('idle');}
+
+var myTimer = setInterval(myFn, 4000);
+
+// Then, later at some future time, 
+// to restart a new 4 second interval starting at this exact moment in time
+clearInterval(myTimer);
+myTimer = setInterval(myFn, 4000);
+
+
+do 
+{	
+	var randomNumber = makeUniqueRandom();
+
+	//Inputs the HTML code and prints it to the page
+	printQuote(quotations[randomNumber].quote);
+	printSource(quotations[randomNumber].source);
+	printCitation(quotations[randomNumber].citation);
+	printYear(quotations[randomNumber].year);
+	printImage(quotations[randomNumber].image);
+	console.log(randomNumber);
+	//First time loading the page generates a random background color
+	changeBackgroundColor();
+}
+
+while (false)
+
 */
-
-

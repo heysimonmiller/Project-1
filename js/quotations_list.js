@@ -65,7 +65,7 @@ var quotations = [
 	year: "1945 - present"
 },
 {
-	quote: "Evening news is where they begin with “Good evening,” and then proceed to tell you why it isn’t.",
+	quote: "Evening news is where they begin with 'Good evening,' and then proceed to tell you why it isn’t.",
 	source: "Anonymous",
 	category: "comedy",
 	image: "images/anonymous.jpg",
