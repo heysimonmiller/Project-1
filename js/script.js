@@ -1,3 +1,12 @@
+/*
+Welcome to Simon's code :) Here's what my program does basically:
+1. Each time the "Show new quote" button is pressed, this program creates a random non-repeating number from 0 - 19.
+2. It then pulls the relevant information (quote, source, image, citation, year) from quotations_list.js and inputs it into the HTML code showing a new quotation.
+3. It also changes the background color to a random color.
+4. Lastly, if the "Show new quote" button is not pressed for 30s, it will automatically run steps 1-3.
+I have checked Google Chrome, Mozilla Firefox, Microsoft Edge/Internet Explorer and Safari and it works as intended.
+*/
+
 // Used in the printQuote(quote) function
 var randomNumber;
 
@@ -51,10 +60,11 @@ function getYear(year) {
   x[0].innerHTML = year;
 }
 
-// Creates the src for the image and adds it in the HTML
+// Creates the src and alt for the image and adds it in the HTML
 function getImage(image) {
  var div = document.getElementById("image");
  div.src = image; //STILL NEED AN ALT IMAGE http://jsfiddle.net/Bc6Et/
+ div.alt = quotations[randomNumber].alt;
 }
 
 // Generates a random color to use for changeBackgroundColor() to change the background color
@@ -84,9 +94,8 @@ function printQuote(quote) {
 	getYear(quotations[randomNumber].year);
 	getImage(quotations[randomNumber].image);
 
-	// Changes the background color to a random color
+	// Changes the background color to a random color each time the function is called
 	changeBackgroundColor();
-	console.log(randomNumber);
 }
 
 // This function resets the timer when the 'Show another quote' button is pressed.
@@ -107,29 +116,8 @@ document.getElementById('loadQuote').addEventListener("click", clickButton, fals
 // We run printQuote() once so that the first page load has a quotation, thereafter pressing the button or waiting 30s (timer) will load the next quotation.
 printQuote();
 
-// event listener to respond to "Show another quote" button clicks
-// when user clicks anywhere on the button, the "printQuote" function is called
-// document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-
 /*
-What I have to do:
-Create an array of JavaScript objects to hold the data for your quotes. Name array quotes. The quotes array should be accessible in the global scope.
-Each quote object should have the following properties:
-A quote property which contains a string: the text of the quote to display on the page
-A source property which contains a string identifying the creator of the quote. For example: "Mark Twain" or "Traditional Irish proverb"
-An optional citation property which contains a string identifying the publication the quote appears in. For example, "Famous Anonymous Jokes". 
-If there is no known publication, then do not include this property on the object.
-An optional year property which contains a number identifying the date of the quote. For example, 1997. If there is no known date, then do not include this property on the object.
-Create a function named getRandomQuote which:
-selects a random quote object from the quotes array
-returns the randomly selected quote object
-Create a function named printQuote which follows these rules:
-printQuote calls the getRandomQuote function and stores the returned quote object in a variable
-printQuote constructs a string using the different properties of the quote object using the following HTML template:
- <p class="quote"> [quote here] </p> <p class="source"> [source here] <span class="citation"> [citation here] </span> <span class="year"> [year here] </span> </p>
-printQuote doesn't add a <span class="citation"> for a missing citation or a <span class="year"> if the year property is missing
-printQuote displays the final HTML string to the page. You can use the following JS snippet to accomplish that: document.getElementById('quote-box').innerHTML
+
 
 -------------
 Make sure you add code comments to document how your functions work

@@ -7,10 +7,11 @@ body {
 #image {
   position: relative;
   border-radius: 10px;
+  margin-right: 58px;
 }
 #quote-box {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 10%;
   right: 10%;
   width: 80%;
@@ -21,8 +22,7 @@ body {
   font-weight: 400;
   line-height: 1.1;
   text-shadow: 2px 2px #696969;
-  margin-left: 250px;
-  position: absolute;
+  position: relative;
   text-shadow: 2px 2px #696969;
   } 
 .quote:before, .quote:after {
