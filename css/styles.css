@@ -34,14 +34,14 @@ body {
 .quote:before {
   content: "“";
   top: .25em;
-  left: -.5em;
+  left: -.45em;
   text-shadow: 2px 2px #696969;
 }
 .quote:after {
   content: "”";
-  bottom: -.1em;
-  margin-left: .1em;
-  position: absolute;
+  top: .25em;
+  margin-left: 0em;
+  position: relative;
   text-shadow: 2px 2px #696969;
 }
 .source {
