@@ -1,7 +1,7 @@
 /*
 Welcome to Simon's code :) Here's what my program does basically:
 1. Each time the "Show new quote" button is pressed, this program creates a random non-repeating number from 0 - 19.
-2. It then pulls the relevant information (quote, source, image, citation, year) from quotations_list.js and inputs it into the HTML code showing a new quotation.
+2. It then pulls the relevant information (quote, source, image, alt, citation, year) from quotations_list.js and inputs it into the HTML code showing a new quotation.
 3. It also changes the background color to a random color.
 4. Lastly, if the "Show new quote" button is not pressed for 30s, it will automatically run steps 1-3.
 I have checked Google Chrome, Mozilla Firefox, Microsoft Edge/Internet Explorer and Safari and it works as intended.
@@ -115,37 +115,3 @@ document.getElementById('loadQuote').addEventListener("click", clickButton, fals
 
 // We run printQuote() once so that the first page load has a quotation, thereafter pressing the button or waiting 30s (timer) will load the next quotation.
 printQuote();
-
-/*
-
-
--------------
-Make sure you add code comments to document how your functions work
-Use JSHint (see the link in the Project Resources section) to analyze your JavaScript and identify any errors or code-style problems.
-Make sure your program is free of syntax errors. You can monitor any errors by looking at the Developer Tools console in your browser.
-Before you submit your project for review, make sure you can check off all of the items on the Student Project Submission Checklist.
-The checklist is designed to help you make sure you’ve met the grading requirements and that your project is complete and ready to be submitted!
-
------------------------
-BONUS: http://treehouse-techdegree.s3.amazonaws.com/Student-Project-Submission-Checklist.pdf
---------------
-
-Add more properties to the quote object. For example, a tags property could include a list of "tags" like -- "humor", "business", "politics" -- to categorize each quote.
-// DONE Randomly change the background color of the page, when the quote changes
-Don't display a random quote more than once until ALL quotes from the array have been displayed.
-Refresh the quote after a set amount of time. For example, every 30 seconds, make a new quote appear. 
-(You can use the setInterval() or setTimeout() method to do this -- see the links in the Project Resources listing.)
-
--------------------
-
-NOTE: A good practice is to check your project for cross browser compatibility.
-Making sure that it looks and functions correctly in multiple (at least three) browsers is an important part of being a top-notch developer.
-If you want, leave a comment to the project reviewer about which browser(s) the project was checked to ensure they are seeing things as you have designed them.
-Some browser options:
-Google Chrome
-Mozilla Firefox
-Internet Explorer/Edge
-Safari
-
-*/
-// STARTING CODE HERE:
